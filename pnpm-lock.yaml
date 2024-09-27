@@ -21,7 +21,7 @@ dependencies:
 devDependencies:
   '@antfu/eslint-config':
     specifier: ^2.21.1
-    version: 2.21.1(@vue/compiler-sfc@3.4.27)(eslint@8.57.0)(typescript@5.4.5)
+    version: 2.21.1(@vue/compiler-sfc@3.4.31)(eslint@8.57.0)(typescript@5.4.5)
   '@iconify/vue':
     specifier: ^4.1.2
     version: 4.1.2(vue@3.4.31)
@@ -101,7 +101,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /@antfu/eslint-config@2.21.1(@vue/compiler-sfc@3.4.27)(eslint@8.57.0)(typescript@5.4.5):
+  /@antfu/eslint-config@2.21.1(@vue/compiler-sfc@3.4.31)(eslint@8.57.0)(typescript@5.4.5):
     resolution: {integrity: sha512-CG7U7nihU73zufrxe5Rr4pxsHrW60GXl9yzRpRY+ImGQ2CVhd0eb3fqJYdNwDJBgKgqHGWX4p1ovYvno/jfWHA==}
     hasBin: true
     peerDependencies:
@@ -173,7 +173,7 @@ packages:
       eslint-plugin-vitest: 0.5.4(@typescript-eslint/eslint-plugin@7.13.0)(eslint@8.57.0)(typescript@5.4.5)
       eslint-plugin-vue: 9.26.0(eslint@8.57.0)
       eslint-plugin-yml: 1.14.0(eslint@8.57.0)
-      eslint-processor-vue-blocks: 0.1.2(@vue/compiler-sfc@3.4.27)(eslint@8.57.0)
+      eslint-processor-vue-blocks: 0.1.2(@vue/compiler-sfc@3.4.31)(eslint@8.57.0)
       globals: 15.4.0
       jsonc-eslint-parser: 2.4.0
       local-pkg: 0.5.0
@@ -2595,13 +2595,13 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-processor-vue-blocks@0.1.2(@vue/compiler-sfc@3.4.27)(eslint@8.57.0):
+  /eslint-processor-vue-blocks@0.1.2(@vue/compiler-sfc@3.4.31)(eslint@8.57.0):
     resolution: {integrity: sha512-PfpJ4uKHnqeL/fXUnzYkOax3aIenlwewXRX8jFinA1a2yCFnLgMuiH3xvCgvHHUlV2xJWQHbCTdiJWGwb3NqpQ==}
     peerDependencies:
       '@vue/compiler-sfc': ^3.3.0
       eslint: ^8.50.0 || ^9.0.0
     dependencies:
-      '@vue/compiler-sfc': 3.4.27
+      '@vue/compiler-sfc': 3.4.31
       eslint: 8.57.0
     dev: true
 
@@ -4525,8 +4525,8 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup@2.79.1:
-    resolution: {integrity: sha512-uKxbd0IhMZOhjAiD5oAFp7BqvkA4Dv47qpOCtaNvng4HBwdbWtdOh8f5nZNuk2rp51PMGk3bzfWu5oayNEuYnw==}
+  /rollup@2.79.2:
+    resolution: {integrity: sha512-fS6iqSPZDs3dr/y7Od6y5nha8dW1YnbgtsyotCVvoFGKbERG++CVRFv1meyGDE1SNItQA8BrnCw7ScdAhRJ3XQ==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:
@@ -5232,7 +5232,7 @@ packages:
       less: 4.2.0
       postcss: 8.4.38
       resolve: 1.22.8
-      rollup: 2.79.1
+      rollup: 2.79.2
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
