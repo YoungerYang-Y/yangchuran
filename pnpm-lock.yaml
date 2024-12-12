@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^3.3.0
     version: 3.3.0(@types/node@20.14.9)(typescript@5.4.5)
   daisyui:
-    specifier: ^4.12.2
-    version: 4.12.2(postcss@8.4.38)
+    specifier: ^4.12.21
+    version: 4.12.21(postcss@8.4.38)
   eslint:
     specifier: ^8.57.0
     version: 8.57.0
@@ -1742,8 +1742,8 @@ packages:
       - typescript
     dev: true
 
-  /daisyui@4.12.2(postcss@8.4.38):
-    resolution: {integrity: sha512-ed3EFwPRLN+9+/MYPRB1pYjk6plRCBMobfBdSeB3voAS81KdL2pCKtbwJfUUpDdOnJ0F8T6oRdVX02P6UCD0Hg==}
+  /daisyui@4.12.21(postcss@8.4.38):
+    resolution: {integrity: sha512-dKfJoGTf5b7D75pVYdNcbhBQd73IOUh9wuXeWHm0qXus4FYvFJJpS9/EX41hAyhojE6s09/ow6wGgPGERzD5wg==}
     engines: {node: '>=16.9.0'}
     dependencies:
       css-selector-tokenizer: 0.8.0
