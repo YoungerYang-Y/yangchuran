@@ -1,7 +1,7 @@
-import type RequestConfig from '@/util/axios/RequestConfig';
-import type Response from '@/util/axios/Response';
-import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-import axios from 'axios';
+import type RequestConfig from '@/util/axios/RequestConfig'
+import type Response from '@/util/axios/Response'
+import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import axios from 'axios'
 
 // 自定义拦截器
 interface InterceptorHooks {
@@ -13,81 +13,81 @@ interface InterceptorHooks {
 
 // 定义请求
 class Request {
-  instance: AxiosInstance;
+  instance: AxiosInstance
   config: RequestConfig = {
     baseURL: import.meta.env.VITE_REQUEST_BASE_URL,
     timeout: 60000,
-  };
+  }
 
-  interceptorHooks?: InterceptorHooks;
-  loading?: boolean;
+  interceptorHooks?: InterceptorHooks
+  loading?: boolean
 
   constructor(options: RequestConfig) {
-    options = Object.assign(this.config, options);
-    this.instance = axios.create(options);
-    this.setupInterceptor();
+    options = Object.assign(this.config, options)
+    this.instance = axios.create(options)
+    this.setupInterceptor()
   }
 
   // 类型参数的作用，T决定AxiosResponse实例中data的类型
   request<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.instance.request(config);
+    return this.instance.request(config)
   }
 
   get<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: 'GET' });
+    return this.request({ ...config, method: 'GET' })
   }
 
   post<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: 'POST' });
+    return this.request({ ...config, method: 'POST' })
   }
 
   delete<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: 'DELETE' });
+    return this.request({ ...config, method: 'DELETE' })
   }
 
   patch<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: 'PATCH' });
+    return this.request({ ...config, method: 'PATCH' })
   }
 
   // 设置拦截器
   setupInterceptor(): void {
     // Request interceptor hooks
-    const requestInterceptor = this.interceptorHooks?.requestInterceptor;
-    const requestInterceptorCatch = this.interceptorHooks?.requestInterceptorCatch;
+    const requestInterceptor = this.interceptorHooks?.requestInterceptor
+    const requestInterceptorCatch = this.interceptorHooks?.requestInterceptorCatch
 
     // Response interceptor hooks
-    const responseInterceptor = this.interceptorHooks?.responseInterceptor;
-    const responseInterceptorCatch = this.interceptorHooks?.responseInterceptorCatch;
+    const responseInterceptor = this.interceptorHooks?.responseInterceptor
+    const responseInterceptorCatch = this.interceptorHooks?.responseInterceptorCatch
 
     // Set request interceptor hooks
-    this.instance.interceptors.request.use(requestInterceptor, requestInterceptorCatch);
+    this.instance.interceptors.request.use(requestInterceptor, requestInterceptorCatch)
 
     // Set response interceptor hooks
-    this.instance.interceptors.response.use(responseInterceptor, responseInterceptorCatch);
+    this.instance.interceptors.response.use(responseInterceptor, responseInterceptorCatch)
 
     // 请求拦截
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('请求发送成功');
+        console.log('请求发送成功')
         // TODO：设置全局loading
         if (this.config.showLoading) {
           //
         }
-        return config;
+        return config
       },
       (err) => {
-        console.log('请求发送失败');
-        return err;
+        console.log('请求发送失败')
+        return err
       },
-    );
+    )
 
     // 响应拦截
     this.instance.interceptors.response.use(
       // 请求完毕，关闭loading
       (res) => {
-        console.log('响应成功的拦截');
+        console.log('响应成功的拦截')
         // this.loading?.close();
-        return res;
+        return res
       },
       (err) => {
         // this.loading?.close();
@@ -131,11 +131,11 @@ class Request {
         //   default:
         //     message = `连接出错(${err.response.status})!`;
         // }
-        console.log(`响应成功的拦截：${err}`);
-        return err;
+        console.log(`响应成功的拦截：${err}`)
+        return err
       },
-    );
+    )
   }
 }
 
-export default Request;
+export default Request

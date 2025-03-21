@@ -1,11 +1,11 @@
 <script lang="ts">
-import { getAssetsFile } from '@/util/CommonUse';
+import { getAssetsFile } from '@/util/CommonUse'
 
 export default {
   components: {
   },
   setup() {
-    return { getAssetsFile };
+    return { getAssetsFile }
   },
   data() {
     return {
@@ -62,9 +62,9 @@ export default {
           description: '出生第 60 天',
         },
       ],
-    };
+    }
   },
-};
+}
 </script>
 
 <template>

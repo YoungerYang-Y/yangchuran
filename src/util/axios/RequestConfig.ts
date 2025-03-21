@@ -1,5 +1,5 @@
-import type InterceptorHooks from '@/util/axios/Request';
-import type { AxiosRequestConfig } from 'axios';
+import type InterceptorHooks from '@/util/axios/Request'
+import type { AxiosRequestConfig } from 'axios'
 
 // 自定义的请求配置接口
 export default interface RequestConfig extends AxiosRequestConfig {
