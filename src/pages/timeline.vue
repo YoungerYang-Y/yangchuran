@@ -1,10 +1,8 @@
 <script lang="ts">
 import { getAssetsFile } from "@/util/CommonUse";
-import { Icon } from "@iconify/vue";
 
 export default {
   components: {
-    Icon,
   },
   setup() {
     return { getAssetsFile };

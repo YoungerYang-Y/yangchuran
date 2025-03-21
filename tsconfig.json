@@ -5,6 +5,7 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo", /* 指定 TypeScript 增量编译过程中生成的 .tsbuildinfo 文件的存储路径 */
     "composite": true,
     "rootDir": "./src", /* 源码根目录 */
+    "types": ["node"],
     "strictNullChecks": true, /* 强制检查 null/undefined（减少运行时错误） */
     "noFallthroughCasesInSwitch": true, /* 防止 switch case 穿透 */
     "baseUrl": ".",
