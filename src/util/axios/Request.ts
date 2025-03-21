@@ -1,6 +1,7 @@
-import axios, { type AxiosInstance, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 import type RequestConfig from "@/util/axios/RequestConfig";
 import type Response from "@/util/axios/Response";
+import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
+import axios from "axios";
 
 // 自定义拦截器
 interface InterceptorHooks {
