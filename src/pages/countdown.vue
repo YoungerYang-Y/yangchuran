@@ -34,7 +34,7 @@ setInterval(() => {
 
 <style scoped>
 .hero {
-  background-image: url("@/assets/images/bg.jpg");
+  background-image: url('@/assets/images/bg.jpg');
 }
 /* 给文本增加动画效果 */
 .tracking-in-contract-bck {
