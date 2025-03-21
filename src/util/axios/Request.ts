@@ -1,7 +1,7 @@
-import type RequestConfig from "@/util/axios/RequestConfig";
-import type Response from "@/util/axios/Response";
-import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import axios from "axios";
+import type RequestConfig from '@/util/axios/RequestConfig';
+import type Response from '@/util/axios/Response';
+import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 // 自定义拦截器
 interface InterceptorHooks {
@@ -34,19 +34,19 @@ class Request {
   }
 
   get<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: "GET" });
+    return this.request({ ...config, method: 'GET' });
   }
 
   post<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: "POST" });
+    return this.request({ ...config, method: 'POST' });
   }
 
   delete<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: "DELETE" });
+    return this.request({ ...config, method: 'DELETE' });
   }
 
   patch<T>(config: RequestConfig): Promise<Response<T>> {
-    return this.request({ ...config, method: "PATCH" });
+    return this.request({ ...config, method: 'PATCH' });
   }
 
   // 设置拦截器
@@ -68,7 +68,7 @@ class Request {
     // 请求拦截
     this.instance.interceptors.request.use(
       (config) => {
-        console.log("请求发送成功");
+        console.log('请求发送成功');
         // TODO：设置全局loading
         if (this.config.showLoading) {
           //
@@ -76,7 +76,7 @@ class Request {
         return config;
       },
       (err) => {
-        console.log("请求发送失败");
+        console.log('请求发送失败');
         return err;
       },
     );
@@ -85,7 +85,7 @@ class Request {
     this.instance.interceptors.response.use(
       // 请求完毕，关闭loading
       (res) => {
-        console.log("响应成功的拦截");
+        console.log('响应成功的拦截');
         // this.loading?.close();
         return res;
       },

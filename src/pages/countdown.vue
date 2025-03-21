@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const time = ref("");
+const time = ref('');
 
-const startDate = new Date("2022-11-15 23:07:00");
+const startDate = new Date('2022-11-15 23:07:00');
 
 setInterval(() => {
   const currentDate = new Date();

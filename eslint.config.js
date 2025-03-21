@@ -8,7 +8,6 @@ export default antfu({
     '.vscode/**',
   ],
   rules: {
-    'style/quotes': ['error', 'double'],
     'style/semi': ['error', 'always'],
     'no-console': ['warn'],
     'curly': ['error', 'multi-or-nest'],
