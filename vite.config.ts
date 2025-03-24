@@ -4,6 +4,8 @@ import VueRouter from "unplugin-vue-router/vite";
 import Components from "unplugin-vue-components/vite";
 import { VueRouterAutoImports } from 'unplugin-vue-router'
 import AutoImport from 'unplugin-auto-import/vite'
+import Layouts from 'vite-plugin-vue-layouts';
+
 
 export default defineConfig({
   plugins: [
@@ -26,6 +28,8 @@ export default defineConfig({
       dts: 'src/auto-imports.d.ts',
       vueTemplate: true, // 允许在 <template> 直接使用自动导入的 API
     }),
+
+    Layouts(),
   ],
   resolve: {
     alias: {

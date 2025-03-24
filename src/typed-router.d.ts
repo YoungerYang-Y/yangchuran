@@ -23,6 +23,7 @@ declare module 'vue-router/auto-routes' {
     '/birthday/one-year-old': RouteRecordInfo<'/birthday/one-year-old', '/birthday/one-year-old', Record<never, never>, Record<never, never>>,
     '/countdown': RouteRecordInfo<'/countdown', '/countdown', Record<never, never>, Record<never, never>>,
     '/error/404': RouteRecordInfo<'/error/404', '/error/404', Record<never, never>, Record<never, never>>,
+    '/login': RouteRecordInfo<'/login', '/login', Record<never, never>, Record<never, never>>,
     '/timeline': RouteRecordInfo<'/timeline', '/timeline', Record<never, never>, Record<never, never>>,
   }
 }
