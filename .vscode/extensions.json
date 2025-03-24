@@ -1,19 +1,9 @@
 {
   "recommendations": [
-    "ms-ceintl.vscode-language-pack-zh-hans",
-    "streetsidesoftware.code-spell-checker",
-    "w88975.code-translate",
     "dbaeumer.vscode-eslint",
-    "mhutchie.git-graph",
     "antfu.vite",
     "vue.volar",
     "dariofuzinato.vue-peek",
-    "wakatime.vscode-wakatime",
-    "eamodio.gitlens",
-    "gruntfuggly.todo-tree",
-    "codeium.codeium",
     "bradlc.vscode-tailwindcss",
-    "seatonjiang.gitmoji-vscode",
-    "antfu.iconify"
   ]
 }
