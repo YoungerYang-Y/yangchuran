@@ -14,7 +14,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^13.0.0",
     "axios": "^1.8.4",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
