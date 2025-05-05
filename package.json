@@ -31,7 +31,7 @@
     "conventional-changelog-cli": "^5.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "daisyui": "^5.0.9",
-    "eslint": "^9.23.0",
+    "eslint": "^9.26.0",
     "eslint-plugin-format": "^1.0.1",
     "git-cz": "^4.9.0",
     "jsdom": "^24.1.3",
