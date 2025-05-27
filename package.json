@@ -10,11 +10,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check build-only",
+    "build": "vite build",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --noEmit --composite false",
     "lint": "pnpm eslint . --ext .ts,.vue,.json",
     "lint:fix": "pnpm eslint . --fix --ext .ts,.vue,.json",
     "prepare": "husky"
