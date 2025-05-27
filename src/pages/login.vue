@@ -1,4 +1,5 @@
 <script lang="ts"></script>
+
 <template>
   <div class="flex flex-row items-center justify-center">
     <!-- 左侧图片区域 -->
@@ -7,8 +8,10 @@
     </div>
     <!-- 右侧输入区域 -->
     <div class="w-1/2 h-screen flex flex-col items-center justify-center">
-      <input class="input input-bordered w-full max-w-xs mb-4" type="text" v-model="username" placeholder="Enter username">
-      <button class="btn btn-success" @click="login">OK</button>
+      <input v-model="username" class="input input-bordered w-full max-w-xs mb-4" type="text" placeholder="Enter username">
+      <button class="btn btn-success" @click="login">
+        OK
+      </button>
     </div>
   </div>
 </template>
