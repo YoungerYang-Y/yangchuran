@@ -1,7 +1,13 @@
 {
   "name": "yangchuran",
+  "type": "module",
   "version": "1.0.0",
+  "private": true,
   "packageManager": "pnpm@10.11.0",
+    "engines": {
+    "node": ">=22.14.0",
+    "pnpm": ">=10"
+  },
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
