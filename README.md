@@ -1,20 +1,21 @@
 <h1 align="center">Yang ChuRan👼</h1>
 
 <p align="center">
-	<a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.shields.io/github/watchers/monkeyDyang/yangchuran?style=social"></a>
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.shields.io/github/forks/monkeyDyang/yangchuran?style=social"></a>
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.shields.io/github/stars/monkeyDyang/yangchuran?style=social"></a>
-	<a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.shields.io/github/last-commit/monkeyDyang/yangchuran?logo=github"></a>
+  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/watchers/monkeyDyang/yangchuran?style=social"></a>
+  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/forks/monkeyDyang/yangchuran?style=social"></a>
+  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/stars/monkeyDyang/yangchuran?style=social"></a>
+  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/last-commit/monkeyDyang/yangchuran?logo=github"></a>
 </p>
 
 ## ⭐ Core Libraries Used
-|Name|Version|
-|--|--|
-|axios|^1.6.7|
-|daisyui|^4.7.2|
-|less|^4.2.0|
-|vue|^3.4.19|
-|vue-router|^4.3.0|
+
+| Name       | Version |
+| ---------- | ------- |
+| axios      | ^1.9.0  |
+| daisyui    | ^5.0.38 |
+| less       | ^4.3.0  |
+| vue        | ^3.5.15 |
+| vue-router | ^4.5.1  |
 
 ## 🌵 Directory Structure
 
@@ -35,7 +36,6 @@
 ├── index.html                # Vue 入口模板
 ├── tests                     # 测试工具
 ├── package.json              # Node.js 项目的配置文件
-├── postcss.config.js         # CSS处理器PostCSS的配置文件
 ├── tailwind.config.js        # Tailwind CSS 的配置文件
 ├── tsconfig.json             # TypeScript的配置文件
 ├── vite.config.ts            # Vite的配置文件
@@ -55,7 +55,6 @@
 | `pnpm run build-only` | 构建生产环境下的代码                                      |
 | `pnpm run type-check` | 类型检查工具                                              |
 | `pnpm run lint`       | 代码检查与自动修复 [ESLint](https://eslint.org/)          |
-| `pnpm run changelog`  | 生成CHANGELOG                                             |
 
 ## 🧩 VS Code Plugin
 
@@ -74,17 +73,17 @@
 
 ## 😁 Conventional Commits
 
-| 类型 | 描述 | 语义化版本 |
-| --- | --- | --- |
-| feat | 新增功能或特性 | 增加次版本号 |
-| fix | 修复 bug | 增加补丁版本号 |
-| docs | 文档相关的变更 | 不改变版本号 |
-| style | 代码风格相关的变更（如格式化、缩进等） | 不改变版本号 |
-| refactor | 代码重构，不改变功能 | 不改变版本号 |
-| test | 添加或修改测试 | 不改变版本号 |
-| build | 构建系统或外部依赖相关的变更（如 gulp, npm 等） | 不改变版本号 |
-| ci | 持续集成配置文件或脚本相关的变更（如 CircleCi, SauceLabs 等） | 不改变版本号 |
-| chore | 其他不影响源码的变更（如更新 .gitignore 等） | 不改变版本号 |
-| perf | 提升性能的变更 | 增加次版本号 |
-| revert | 撤销之前的提交 | 增加补丁版本号 |
-| breaking change | 引入破坏性变更，需要在脚注说明变更内容和迁移方法 | 增加主版本号 |
+| 类型            | 描述                                                          | 语义化版本     |
+| --------------- | ------------------------------------------------------------- | -------------- |
+| feat            | 新增功能或特性                                                | 增加次版本号   |
+| fix             | 修复 bug                                                      | 增加补丁版本号 |
+| docs            | 文档相关的变更                                                | 不改变版本号   |
+| style           | 代码风格相关的变更（如格式化、缩进等）                        | 不改变版本号   |
+| refactor        | 代码重构，不改变功能                                          | 不改变版本号   |
+| test            | 添加或修改测试                                                | 不改变版本号   |
+| build           | 构建系统或外部依赖相关的变更（如 gulp, npm 等）               | 不改变版本号   |
+| ci              | 持续集成配置文件或脚本相关的变更（如 CircleCi, SauceLabs 等） | 不改变版本号   |
+| chore           | 其他不影响源码的变更（如更新 .gitignore 等）                  | 不改变版本号   |
+| perf            | 提升性能的变更                                                | 增加次版本号   |
+| revert          | 撤销之前的提交                                                | 增加补丁版本号 |
+| breaking change | 引入破坏性变更，需要在脚注说明变更内容和迁移方法              | 增加主版本号   |
