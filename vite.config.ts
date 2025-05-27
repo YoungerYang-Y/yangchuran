@@ -10,14 +10,14 @@ import Layouts from 'vite-plugin-vue-layouts';
 export default defineConfig({
   plugins: [
     VueRouter({
-      dts: "src/typed-router.d.ts",
+      dts: "src/types/typed-router.d.ts",
     }),
 
     // ⚠️ Vue must be placed after VueRouter()
     vue(),
 
     Components({ 
-      dts: "src/components.d.ts" 
+      dts: "src/types/components.d.ts" 
     }),
   
     AutoImport({
@@ -25,7 +25,7 @@ export default defineConfig({
         'vue',
         VueRouterAutoImports,
       ],
-      dts: 'src/auto-imports.d.ts',
+      dts: 'src/types/auto-imports.d.ts',
       vueTemplate: true, // 允许在 <template> 直接使用自动导入的 API
     }),
 

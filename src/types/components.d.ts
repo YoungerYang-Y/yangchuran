@@ -8,11 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Footer: typeof import('./components/footer.vue')['default']
-    Navbar: typeof import('./components/navbar.vue')['default']
+    Footer: typeof import('./../components/footer.vue')['default']
+    Navbar: typeof import('./../components/navbar.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Theme: typeof import('./components/theme.vue')['default']
-    Translate: typeof import('./components/translate.vue')['default']
+    Theme: typeof import('./../components/theme.vue')['default']
+    Translate: typeof import('./../components/translate.vue')['default']
   }
 }
