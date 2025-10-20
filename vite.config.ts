@@ -35,15 +35,6 @@ export default defineConfig({
       '@': '/src',
     },
   },
-  server: {
-    proxy: {
-      '/userBusiness': {
-        target: 'http://192.168.0.104:13191', // 实际请求地址
-        changeOrigin: true,
-        rewrite: path => path.replace(/^\/userBusiness/, ''),
-      },
-    },
-  },
   build: {
     rollupOptions: {
       output: {
