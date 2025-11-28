@@ -9,10 +9,13 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 4173",
     "lint": "pnpm eslint . --ext .ts,.vue,.json",
     "lint:fix": "pnpm eslint . --fix --ext .ts,.vue,.json",
+    "format": "prettier --write \"**/*.{js,ts,vue,json,md,css,less,scss}\"",
+    "format:check": "prettier --check \"**/*.{js,ts,vue,json,md,css,less,scss}\"",
+    "type-check": "vue-tsc --noEmit",
     "dep:check": "pnpm dlx npm-check-updates",
     "dep:update": "pnpm dlx npm-check-updates -u && pnpm install",
     "prepare": "husky"
@@ -35,12 +38,14 @@
     "autoprefixer": "^10.4.21",
     "daisyui": "^5.3.7",
     "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-format": "^1.0.2",
     "husky": "^9.1.7",
     "jsdom": "^27.0.1",
     "less": "^4.4.2",
     "lint-staged": "^16.2.4",
     "postcss": "^8.5.6",
+    "prettier": "^3.7.1",
     "tailwindcss": "^3.4.18",
     "typescript": "~5.9.3",
     "unplugin-auto-import": "^20.2.0",
@@ -51,6 +56,9 @@
     "vue-tsc": "^3.1.1"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*.{js,ts,vue,json,md,css,less,scss}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }

@@ -1,17 +1,25 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="h-screen">
     <!-- 生日快乐 -->
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/birthday/one-year-old/bg-1.png')]">
+    <div
+      class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/birthday/one-year-old/bg-1.png')]"
+    >
       <!-- 上 -->
       <div class="min-w-full">
         <!-- 彩旗 -->
-        <img class="slide-in-top w-2/3 m-auto" src="@/assets/images/birthday/one-year-old/bunting.png" alt="">
+        <img
+          class="slide-in-top w-2/3 m-auto"
+          src="@/assets/images/birthday/one-year-old/bunting.png"
+          alt=""
+        />
         <!-- 标语 -->
-        <img class="slide-in-top h-32 m-auto" src="@/assets/images/birthday/one-year-old/happy-birthday.png" alt="">
+        <img
+          class="slide-in-top h-32 m-auto"
+          src="@/assets/images/birthday/one-year-old/happy-birthday.png"
+          alt=""
+        />
       </div>
       <!-- 左 -->
       <div>
@@ -19,17 +27,17 @@
         <img
           class="slide-in-bottom w-20 absolute left-10 top-1/3 transition delay-200"
           src="@/assets/images/birthday/one-year-old/balloon-1.png"
-        >
+        />
         <!-- 蛋糕 -->
         <img
           class="slide-in-left w-60 absolute left-1/2 top-1/2 delay-500"
           src="@/assets/images/birthday/one-year-old/cake.svg"
-        >
+        />
         <!-- 兔子 -->
         <img
           class="roll-in-right w-40 absolute right-1/4 top-1/2 delay-700"
           src="@/assets/images/birthday/one-year-old/rabbit.png"
-        >
+        />
       </div>
       <!-- 下 -->
       <div />
@@ -39,23 +47,23 @@
         <img
           class="slide-in-bottom w-20 absolute right-10 top-10"
           src="@/assets/images/birthday/one-year-old/balloon-2.png"
-        >
+        />
         <img
           class="slide-in-bottom w-20 absolute right-20 bottom-10"
           src="@/assets/images/birthday/one-year-old/balloon-3.png"
-        >
+        />
       </div>
     </div>
     <div class="divider" />
 
     <!-- 相框 -->
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')] " />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')]" />
     <div class="divider" />
 
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0002.jpg')] " />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0002.jpg')]" />
     <div class="divider" />
 
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')] " />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')]" />
     <div class="divider" />
 
     <!-- 照片墙 -->

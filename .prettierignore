@@ -1,0 +1,10 @@
+node_modules
+dist
+.vscode
+.github
+pnpm-lock.yaml
+*.min.js
+*.min.css
+coverage
+.husky
+

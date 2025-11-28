@@ -2,8 +2,7 @@
 import { getAssetsFile } from '@/util/CommonUse'
 
 export default {
-  components: {
-  },
+  components: {},
   setup() {
     return { getAssetsFile }
   },
@@ -73,16 +72,30 @@ export default {
       <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
         <li v-for="item in timelineData" :key="item.id">
           <div class="timeline-middle">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clip-rule="evenodd" /></svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="h-5 w-5"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                clip-rule="evenodd"
+              />
+            </svg>
           </div>
-          <div class="timeline-start mb-10" :class="item.id % 2 === 0 ? 'timeline-end md' : 'timeline-start md:text-end'">
+          <div
+            class="timeline-start mb-10"
+            :class="item.id % 2 === 0 ? 'timeline-end md' : 'timeline-start md:text-end'"
+          >
             <time class="font-mono italic">{{ item.date }}</time>
             <div class="text-lg font-black">
-              <img :src="getAssetsFile(item.image?.url)" :alt="item.image?.name">
+              <img :src="getAssetsFile(item.image?.url)" :alt="item.image?.name" />
             </div>
             {{ item.description }}
           </div>
-          <hr>
+          <hr />
         </li>
       </ul>
     </div>
