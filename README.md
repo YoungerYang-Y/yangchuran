@@ -1,10 +1,10 @@
 <h1 align="center">Yang ChuRan👼</h1>
 
 <p align="center">
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/watchers/monkeyDyang/yangchuran?style=social"></a>
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/forks/monkeyDyang/yangchuran?style=social"></a>
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/stars/monkeyDyang/yangchuran?style=social"></a>
-  <a href="https://github.com/monkeyDyang/yangchuran"><img src="https://img.  shields.io/github/last-commit/monkeyDyang/yangchuran?logo=github"></a>
+  <a href="https://github.com/YoungerYang-Y/yangchuran"><img src="https://img.  shields.io/github/watchers/YoungerYang-Y/yangchuran?style=social"></a>
+  <a href="https://github.com/YoungerYang-Y/yangchuran"><img src="https://img.  shields.io/github/forks/YoungerYang-Y/yangchuran?style=social"></a>
+  <a href="https://github.com/YoungerYang-Y/yangchuran"><img src="https://img.  shields.io/github/stars/YoungerYang-Y/yangchuran?style=social"></a>
+  <a href="https://github.com/YoungerYang-Y/yangchuran"><img src="https://img.  shields.io/github/last-commit/YoungerYang-Y/yangchuran?logo=github"></a>
 </p>
 
 ## ⭐ Core Libraries Used
