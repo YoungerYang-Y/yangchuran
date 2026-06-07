@@ -1,69 +1,38 @@
-<script lang="ts">
+<script setup lang="ts">
 import { getAssetsFile } from '@/util/CommonUse'
 
-export default {
-  components: {},
-  setup() {
-    return { getAssetsFile }
+const timelineData = [
+  {
+    id: 1,
+    image: { name: '0001.jpg', url: '0001.jpg' },
+    date: '2022年11月15日',
+    description: '出生第 1 天',
   },
-  data() {
-    return {
-      // 时间轴展示对象
-      timelineData: [
-        {
-          id: 1,
-          icon: 'streamline-emojis:baby-bottle',
-          image: {
-            name: '0001.jpg',
-            url: '0001.jpg',
-          },
-          date: '2022年11月15日',
-          description: '出生第 1 天',
-        },
-        {
-          id: 2,
-          icon: 'streamline-emojis:baby-1',
-          image: {
-            name: '0002.jpg',
-            url: '0002.jpg',
-          },
-          date: '2022年12月15日',
-          description: '出生第 30 天',
-        },
-        {
-          id: 3,
-          icon: 'streamline-emojis:crown',
-          image: {
-            name: 'bg.jpg',
-            url: 'bg.jpg',
-          },
-          date: '2023年1月15日',
-          description: '出生第 60 天',
-        },
-        {
-          id: 4,
-          icon: 'streamline-emojis:crown',
-          image: {
-            name: 'bg.jpg',
-            url: 'bg.jpg',
-          },
-          date: '2023年1月15日',
-          description: '出生第 60 天',
-        },
-        {
-          id: 5,
-          icon: 'streamline-emojis:crown',
-          image: {
-            name: 'bg.jpg',
-            url: 'bg.jpg',
-          },
-          date: '2023年1月15日',
-          description: '出生第 60 天',
-        },
-      ],
-    }
+  {
+    id: 2,
+    image: { name: '0002.jpg', url: '0002.jpg' },
+    date: '2022年12月15日',
+    description: '出生第 30 天',
   },
-}
+  {
+    id: 3,
+    image: { name: 'bg.jpg', url: 'bg.jpg' },
+    date: '2023年1月15日',
+    description: '出生第 60 天',
+  },
+  {
+    id: 4,
+    image: { name: 'bg.jpg', url: 'bg.jpg' },
+    date: '2023年1月15日',
+    description: '出生第 60 天',
+  },
+  {
+    id: 5,
+    image: { name: 'bg.jpg', url: 'bg.jpg' },
+    date: '2023年1月15日',
+    description: '出生第 60 天',
+  },
+]
 </script>
 
 <template>
@@ -91,7 +60,7 @@ export default {
           >
             <time class="font-mono italic">{{ item.date }}</time>
             <div class="text-lg font-black">
-              <img :src="getAssetsFile(item.image?.url)" :alt="item.image?.name">
+              <img :src="getAssetsFile(item.image.url)" :alt="item.image.name">
             </div>
             {{ item.description }}
           </div>
@@ -101,5 +70,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style scoped></style>

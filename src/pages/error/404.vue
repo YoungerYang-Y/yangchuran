@@ -1,21 +1,22 @@
 <template>
-  <main class="grid h-vh place-items-center bg-base-100 px-6 py-24 sm:py-32 lg:px-8">
+  <main class="grid min-h-[80vh] place-items-center px-6 py-24">
     <div class="text-center">
-      <p class="text-base font-semibold text-indigo-600">
+      <p class="text-6xl font-bold text-pink-300">
         404
       </p>
-      <h1 class="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-        Page not found
+      <h1 class="mt-4 text-3xl font-bold tracking-tight text-pink-800 sm:text-5xl">
+        页面未找到
       </h1>
-      <p class="mt-6 text-base leading-7 text-gray-600">
-        Sorry, we couldn’t find the page you’re looking for.
+      <p class="mt-6 text-base leading-7 text-pink-600/70">
+        抱歉，找不到你要访问的页面。
       </p>
-      <div class="mt-10 flex items-center justify-center gap-x-6">
-        <a
-          href="#"
-          class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >Go back home</a>
-        <a href="#" class="text-sm font-semibold text-gray-900">Contact support <span aria-hidden="true">&rarr;</span></a>
+      <div class="mt-10">
+        <RouterLink
+          to="/"
+          class="btn btn-primary bg-pink-500 border-pink-500 hover:bg-pink-600 hover:border-pink-600 text-white"
+        >
+          回到首页
+        </RouterLink>
       </div>
     </div>
   </main>

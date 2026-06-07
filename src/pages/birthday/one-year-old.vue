@@ -57,13 +57,13 @@
     <div class="divider" />
 
     <!-- 相框 -->
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')]" />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0001.jpg')]" />
     <div class="divider" />
 
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0002.jpg')]" />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0002.jpg')]" />
     <div class="divider" />
 
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/0001.jpg')]" />
+    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0001.jpg')]" />
     <div class="divider" />
 
     <!-- 照片墙 -->
@@ -87,11 +87,11 @@
 
 <style lang="less" scoped>
 .img-1 {
-  background-image: url('@/assets/images/0001.jpg');
+  background-image: url('/images/0001.jpg');
 }
 
 .img-2 {
-  background-image: url('@/assets/images/0002.jpg');
+  background-image: url('/images/0002.jpg');
 }
 
 /* 从上滑入 */
