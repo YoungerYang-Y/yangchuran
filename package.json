@@ -11,10 +11,8 @@
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview --port 4173",
-    "lint": "pnpm eslint . --ext .ts,.vue,.json",
-    "lint:fix": "pnpm eslint . --fix --ext .ts,.vue,.json",
-    "format": "prettier --write \"**/*.{js,ts,vue,json,md,css,less,scss}\"",
-    "format:check": "prettier --check \"**/*.{js,ts,vue,json,md,css,less,scss}\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "type-check": "vue-tsc --noEmit",
     "dep:check": "pnpm dlx npm-check-updates",
     "dep:update": "pnpm dlx npm-check-updates -u && pnpm install",
@@ -39,7 +37,6 @@
     "husky": "^9.1.7",
     "less": "^4.6.4",
     "lint-staged": "^17.0.7",
-    "prettier": "^3.8.3",
     "tailwindcss": "^4.3.0",
     "typescript": "~5.9.3",
     "unplugin-auto-import": "^21.0.0",
@@ -57,9 +54,6 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,vue,json,md,css,less,scss}": [
-      "prettier --write",
-      "eslint --fix"
-    ]
+    "*.{js,ts,vue,json,md,css,less,scss}": "eslint --fix"
   }
 }
