@@ -13,12 +13,12 @@ function updateTime() {
   const now = new Date()
   const hours = now.getHours()
 
-  if (hours < 6) 
-greeting.value = '夜深了，注意休息 🌙'
-  else if (hours < 12) 
-greeting.value = '早上好！新的一天开始了 ☀️'
-  else if (hours < 18) 
-greeting.value = '下午好！继续加油 💪'
+  if (hours < 6)
+    greeting.value = '夜深了，注意休息 🌙'
+  else if (hours < 12)
+    greeting.value = '早上好！新的一天开始了 ☀️'
+  else if (hours < 18)
+    greeting.value = '下午好！继续加油 💪'
   else greeting.value = '晚上好！今天辛苦了 🌆'
 
   currentTime.value = now.toLocaleString('zh-CN', {
@@ -35,13 +35,13 @@ greeting.value = '下午好！继续加油 💪'
 function setupScrollAnimations() {
   const elements = document.querySelectorAll<HTMLElement>('[data-scroll-fade]')
 
-  elements.forEach(el => {
+  elements.forEach((el) => {
     el.classList.add('scroll-fade-init')
   })
 
   scrollObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('scroll-fade-in')
           scrollObserver?.unobserve(entry.target)
@@ -156,7 +156,9 @@ onUnmounted(() => {
               <div class="w-14 h-14">
                 <BottleIcon class="w-full h-full" />
               </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">暖暖奶瓶</h3>
+              <h3 class="card-title justify-center text-pink-700 text-lg">
+                暖暖奶瓶
+              </h3>
               <p class="text-xs sm:text-sm text-pink-900/80">
                 记录从小奶宝宝到大女孩的每一次“喝光光”，陪伴最安心的入睡时刻。
               </p>
@@ -172,7 +174,9 @@ onUnmounted(() => {
               <div class="w-14 h-14">
                 <BagIcon class="w-full h-full" />
               </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">小小书包</h3>
+              <h3 class="card-title justify-center text-pink-700 text-lg">
+                小小书包
+              </h3>
               <p class="text-xs sm:text-sm text-pink-900/80">
                 把画画本和小贴纸都装进去，背上书包，就是准备好去探索世界的小小冒险家。
               </p>
@@ -188,7 +192,9 @@ onUnmounted(() => {
               <div class="w-14 h-14">
                 <GogglesIcon class="w-full h-full" />
               </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">粉色游泳镜</h3>
+              <h3 class="card-title justify-center text-pink-700 text-lg">
+                粉色游泳镜
+              </h3>
               <p class="text-xs sm:text-sm text-pink-900/80">
                 在水里睁大眼睛看这个世界，每一次扑腾都是新的勇气值 +1。
               </p>
@@ -204,7 +210,9 @@ onUnmounted(() => {
               <div class="w-14 h-14">
                 <BikeIcon class="w-full h-full" />
               </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">小小自行车</h3>
+              <h3 class="card-title justify-center text-pink-700 text-lg">
+                小小自行车
+              </h3>
               <p class="text-xs sm:text-sm text-pink-900/80">
                 从滑步车到真正的小自行车，在每一圈绕圈圈里，慢慢学会保持平衡。
               </p>

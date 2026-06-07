@@ -91,11 +91,11 @@ export default {
           >
             <time class="font-mono italic">{{ item.date }}</time>
             <div class="text-lg font-black">
-              <img :src="getAssetsFile(item.image?.url)" :alt="item.image?.name" />
+              <img :src="getAssetsFile(item.image?.url)" :alt="item.image?.name">
             </div>
             {{ item.description }}
           </div>
-          <hr />
+          <hr>
         </li>
       </ul>
     </div>

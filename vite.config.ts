@@ -42,17 +42,12 @@ export default defineConfig({
         manualChunks(id) {
           // 将 node_modules 中的依赖分离到 vendor chunk
           if (id.includes('node_modules')) {
-            // 将大型库分离到独立的 chunk
-            if (id.includes('vue') || id.includes('vue-router')) {
+            if (id.includes('vue') || id.includes('vue-router'))
               return 'vue-vendor'
-            }
-            if (id.includes('axios')) {
-              return 'axios-vendor'
-            }
-            if (id.includes('@vueuse')) {
+
+            if (id.includes('@vueuse'))
               return 'vueuse-vendor'
-            }
-            // 其他 node_modules 依赖
+
             return 'vendor'
           }
         },

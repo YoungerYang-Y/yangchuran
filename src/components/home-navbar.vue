@@ -12,13 +12,19 @@
     <nav class="flex-none">
       <ul class="menu menu-horizontal px-1 text-sm text-pink-700 gap-2">
         <li>
-          <RouterLink to="/" class="hover:text-pink-500"> 首页 </RouterLink>
+          <RouterLink to="/" class="hover:text-pink-500">
+            首页
+          </RouterLink>
         </li>
         <li>
-          <RouterLink to="/timeline" class="hover:text-pink-500"> 成长记录 </RouterLink>
+          <RouterLink to="/timeline" class="hover:text-pink-500">
+            成长记录
+          </RouterLink>
         </li>
         <li>
-          <RouterLink to="/countdown" class="hover:text-pink-500"> 生日惊喜 </RouterLink>
+          <RouterLink to="/countdown" class="hover:text-pink-500">
+            生日惊喜
+          </RouterLink>
         </li>
       </ul>
     </nav>
