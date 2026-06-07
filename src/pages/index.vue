@@ -217,6 +217,8 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+@reference "tailwindcss";
+
 @keyframes float {
   0%,
   100% {
