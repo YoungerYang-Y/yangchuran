@@ -36,25 +36,7 @@ export default defineConfig({
         chunkFileNames: 'static/js/[name]-[hash].js',
         entryFileNames: 'static/js/[name]-[hash].js',
         assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
-        manualChunks(id) {
-          // 将 node_modules 中的依赖分离到 vendor chunk
-          if (id.includes('node_modules')) {
-            if (id.includes('vue') || id.includes('vue-router'))
-              return 'vue-vendor'
-
-            if (id.includes('@vueuse'))
-              return 'vueuse-vendor'
-
-            return 'vendor'
-          }
-        },
       },
     },
-    // 启用压缩
-    minify: 'esbuild',
-    // 启用 source map（生产环境可选）
-    sourcemap: false,
-    // 优化 chunk 大小警告阈值
-    chunkSizeWarningLimit: 1000,
   },
 })

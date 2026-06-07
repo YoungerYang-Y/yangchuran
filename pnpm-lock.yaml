@@ -30,9 +30,6 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.3.0
         version: 4.3.0
-      '@types/node':
-        specifier: ^25.9.2
-        version: 25.9.2
       '@vitejs/plugin-vue':
         specifier: ^6.0.7
         version: 6.0.7(vite@7.3.1(@types/node@25.9.2)(jiti@2.7.0)(less@4.6.4)(lightningcss@1.32.0)(yaml@2.9.0))(vue@3.5.35(typescript@5.9.3))
@@ -48,9 +45,6 @@ importers:
       husky:
         specifier: ^9.1.7
         version: 9.1.7
-      less:
-        specifier: ^4.6.4
-        version: 4.6.4
       lint-staged:
         specifier: ^17.0.7
         version: 17.0.7
@@ -3958,6 +3952,7 @@ snapshots:
   copy-anything@3.0.5:
     dependencies:
       is-what: 4.1.16
+    optional: true
 
   core-js-compat@3.49.0:
     dependencies:
@@ -4549,7 +4544,8 @@ snapshots:
 
   is-plain-obj@4.1.0: {}
 
-  is-what@4.1.16: {}
+  is-what@4.1.16:
+    optional: true
 
   isexe@2.0.0: {}
 
@@ -4607,6 +4603,7 @@ snapshots:
       mime: 1.6.0
       needle: 3.3.1
       source-map: 0.6.1
+    optional: true
 
   levn@0.4.1:
     dependencies:
@@ -5183,7 +5180,8 @@ snapshots:
       json-parse-even-better-errors: 2.3.1
       lines-and-columns: 1.2.4
 
-  parse-node-version@1.0.1: {}
+  parse-node-version@1.0.1:
+    optional: true
 
   parse-statements@1.0.11: {}
 

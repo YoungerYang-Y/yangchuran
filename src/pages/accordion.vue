@@ -30,15 +30,16 @@
   </ul>
 </template>
 
-<style scoped lang="less">
+<style scoped>
 .accordion-container {
   overflow: hidden;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+
   .accordion-item {
     list-style: none;
-    height: 100vh - 4rem;
+    height: calc(100vh - 4rem);
     transition: width 0.5s;
     background-repeat: no-repeat;
     background-size: cover;
@@ -47,15 +48,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     &:not(:hover) {
       width: 20%;
     }
+
     &:hover {
       width: 800px;
+
       &::after {
         opacity: 1;
       }
     }
+
     &::after {
       content: '';
       width: 100%;
@@ -68,6 +73,7 @@
       opacity: 0;
       transition: opacity 0.5s;
     }
+
     .accordion-title {
       color: #fff;
       font-size: 18px;

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { getAssetsFile } from '@/util/CommonUse'
-
 const timelineData = [
   {
     id: 1,
@@ -60,7 +58,7 @@ const timelineData = [
           >
             <time class="font-mono italic">{{ item.date }}</time>
             <div class="text-lg font-black">
-              <img :src="getAssetsFile(item.image.url)" :alt="item.image.name">
+              <img :src="`/images/${item.image.url}`" :alt="item.image.name">
             </div>
             {{ item.description }}
           </div>
