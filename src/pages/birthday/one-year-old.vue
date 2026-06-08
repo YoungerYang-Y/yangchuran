@@ -1,171 +1,43 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+import BalloonRise from '../../components/birthday/BalloonRise.vue'
+import BirthdayHero from '../../components/birthday/BirthdayHero.vue'
+import ConfettiBlast from '../../components/birthday/ConfettiBlast.vue'
+import PhotoWall from '../../components/birthday/PhotoWall.vue'
+import { useGsapContext } from '../../composables/useGsapContext'
+
+const root = ref<HTMLElement>()
+useGsapContext(root)
+
+const photos = ['/images/0001.jpg', '/images/0002.jpg', '/images/0001.jpg', '/images/0002.jpg', '/images/0001.jpg', '/images/0002.jpg']
+</script>
 
 <template>
-  <div class="h-screen">
-    <!-- 生日快乐 -->
-    <div
-      class="h-screen bg-fixed bg-cover bg-center bg-[url('@/assets/images/birthday/one-year-old/bg-1.png')]"
+  <div ref="root">
+    <BirthdayHero
+      title="🎂 Happy 1st Birthday!"
+      subtitle="果果一岁啦～"
+      background="linear-gradient(135deg, #fce4ec, #f8bbd0)"
     >
-      <!-- 上 -->
-      <div class="min-w-full">
-        <!-- 彩旗 -->
-        <img
-          class="slide-in-top w-2/3 m-auto"
-          src="@/assets/images/birthday/one-year-old/bunting.png"
-          alt=""
-        >
-        <!-- 标语 -->
-        <img
-          class="slide-in-top h-32 m-auto"
-          src="@/assets/images/birthday/one-year-old/happy-birthday.png"
-          alt=""
-        >
+      <BalloonRise :colors="['#f48fb1', '#ce93d8', '#ef9a9a']" />
+      <ConfettiBlast />
+    </BirthdayHero>
+
+    <PhotoWall :images="photos" :columns="3" />
+
+    <!-- Footer -->
+    <section class="py-12 px-4 text-center bg-gradient-to-t from-pink-50 to-white">
+      <p class="text-gray-600 mb-6 max-w-md mx-auto leading-relaxed">
+        亲爱的果果，一岁的你学会了走路、学会了叫妈妈，每一天都在变成更棒的小朋友 🌟
+      </p>
+      <div class="flex gap-3 justify-center">
+        <RouterLink to="/birthday/two-year-old" class="btn btn-primary btn-sm bg-pink-500 border-pink-500">
+          → 两岁生日
+        </RouterLink>
+        <RouterLink to="/" class="btn btn-outline btn-sm border-pink-300 text-pink-600">
+          ← 回首页
+        </RouterLink>
       </div>
-      <!-- 左 -->
-      <div>
-        <!-- 气球 -->
-        <img
-          class="slide-in-bottom w-20 absolute left-10 top-1/3 transition delay-200"
-          src="@/assets/images/birthday/one-year-old/balloon-1.png"
-        >
-        <!-- 蛋糕 -->
-        <img
-          class="slide-in-left w-60 absolute left-1/2 top-1/2 delay-500"
-          src="@/assets/images/birthday/one-year-old/cake.svg"
-        >
-        <!-- 兔子 -->
-        <img
-          class="roll-in-right w-40 absolute right-1/4 top-1/2 delay-700"
-          src="@/assets/images/birthday/one-year-old/rabbit.png"
-        >
-      </div>
-      <!-- 下 -->
-      <div />
-      <!-- 右 -->
-      <div>
-        <!-- 气球 -->
-        <img
-          class="slide-in-bottom w-20 absolute right-10 top-10"
-          src="@/assets/images/birthday/one-year-old/balloon-2.png"
-        >
-        <img
-          class="slide-in-bottom w-20 absolute right-20 bottom-10"
-          src="@/assets/images/birthday/one-year-old/balloon-3.png"
-        >
-      </div>
-    </div>
-    <div class="divider" />
-
-    <!-- 相框 -->
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0001.jpg')]" />
-    <div class="divider" />
-
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0002.jpg')]" />
-    <div class="divider" />
-
-    <div class="h-screen bg-fixed bg-cover bg-center bg-[url('/images/0001.jpg')]" />
-    <div class="divider" />
-
-    <!-- 照片墙 -->
-    <div class="h-screen grid grid-cols-3 grid-rows-4 gap-10">
-      <div class="img-2 bg-cover mask mask-star-2" />
-      <div class="img-2 bg-cover mask mask-star-2" />
-      <div class="img-2 bg-cover mask mask-star-2" />
-      <div class="img-2 bg-cover mask mask-squircle" />
-      <div class="img-2 bg-cover mask mask-squircle" />
-      <div class="img-2 bg-cover mask mask-squircle" />
-      <div class="img-2 bg-cover mask mask-circle" />
-      <div class="img-2 bg-cover mask mask-circle" />
-      <div class="img-2 bg-cover mask mask-circle" />
-      <div class="img-2 bg-cover mask mask-heart" />
-      <div class="img-2 bg-cover mask mask-heart" />
-      <div class="img-2 bg-cover mask mask-heart" />
-    </div>
-    <div class="divider" />
+    </section>
   </div>
 </template>
-
-<style scoped>
-.img-1 {
-  background-image: url('/images/0001.jpg');
-}
-
-.img-2 {
-  background-image: url('/images/0002.jpg');
-}
-
-.slide-in-top {
-  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s both;
-}
-
-.slide-in-left {
-  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s both;
-}
-
-.slide-in-bottom {
-  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s both;
-}
-
-.roll-in-left {
-  animation: roll-in-left 0.6s ease-out 1.5s both;
-}
-
-.roll-in-right {
-  animation: roll-in-right 0.6s ease-out 1.5s both;
-}
-
-@keyframes slide-in-top {
-  0% {
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-in-bottom {
-  0% {
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes roll-in-left {
-  0% {
-    transform: translateX(-800px) rotate(-540deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes roll-in-right {
-  0% {
-    transform: translateX(800px) rotate(540deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) rotate(0deg);
-    opacity: 1;
-  }
-}
-</style>

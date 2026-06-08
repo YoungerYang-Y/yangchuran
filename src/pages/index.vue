@@ -1,265 +1,101 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
-import BagIcon from '../components/icons/BagIcon.vue'
-import BikeIcon from '../components/icons/BikeIcon.vue'
-import BottleIcon from '../components/icons/BottleIcon.vue'
-import GogglesIcon from '../components/icons/GogglesIcon.vue'
+import { computed, ref } from 'vue'
+import PetalFall from '../components/atmosphere/PetalFall.vue'
+import GiftBoxNav from '../components/decorations/GiftBoxNav.vue'
+import SvgCloud from '../components/decorations/SvgCloud.vue'
+import SvgFlower from '../components/decorations/SvgFlower.vue'
+import SvgHeart from '../components/decorations/SvgHeart.vue'
+import SvgStar from '../components/decorations/SvgStar.vue'
+import { useCountUp } from '../composables/useCountUp'
+import { useFloating } from '../composables/useFloating'
+import { useGsapContext } from '../composables/useGsapContext'
+import { useGsapEntrance } from '../composables/useGsapEntrance'
 
-const currentTime = ref('')
-const greeting = ref('')
-let scrollObserver: IntersectionObserver | null = null
+const root = ref<HTMLElement>()
+const photoEl = ref<HTMLElement>()
+const titleEl = ref<HTMLElement>()
+const daysEl = ref<HTMLElement>()
+const giftsEl = ref<HTMLElement>()
+const cloud1 = ref<HTMLElement>()
+const cloud2 = ref<HTMLElement>()
+const star1 = ref<HTMLElement>()
+const star2 = ref<HTMLElement>()
+const heart1 = ref<HTMLElement>()
+const flower1 = ref<HTMLElement>()
 
-function updateTime() {
-  const now = new Date()
-  const hours = now.getHours()
+useGsapContext(root)
+useGsapEntrance(photoEl, { from: { opacity: 0, scale: 0, rotation: -10 }, duration: 1.2, ease: 'elastic.out(1, 0.5)', delay: 0.5 })
+useGsapEntrance(titleEl, { from: { opacity: 0, y: 30 }, delay: 1.2 })
+useGsapEntrance(giftsEl, { from: { opacity: 0, y: 20 }, delay: 1.8 })
+useFloating(cloud1, { y: -6, duration: 5 })
+useFloating(cloud2, { y: 8, duration: 6 })
+useFloating(star1, { y: -5, duration: 2.5 })
+useFloating(star2, { y: 6, duration: 3.5 })
+useFloating(heart1, { y: -4, duration: 4 })
+useFloating(flower1, { y: 4, duration: 3.5 })
 
-  if (hours < 6)
-    greeting.value = '夜深了，注意休息 🌙'
-  else if (hours < 12)
-    greeting.value = '早上好！新的一天开始了 ☀️'
-  else if (hours < 18)
-    greeting.value = '下午好！继续加油 💪'
-  else greeting.value = '晚上好！今天辛苦了 🌆'
-
-  currentTime.value = now.toLocaleString('zh-CN', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    weekday: 'long',
-  })
-}
-
-function setupScrollAnimations() {
-  const elements = document.querySelectorAll<HTMLElement>('[data-scroll-fade]')
-
-  elements.forEach((el) => {
-    el.classList.add('scroll-fade-init')
-  })
-
-  scrollObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('scroll-fade-in')
-          scrollObserver?.unobserve(entry.target)
-        }
-      })
-    },
-    {
-      threshold: 0.15,
-    },
-  )
-
-  elements.forEach(el => scrollObserver?.observe(el))
-}
-
-onMounted(() => {
-  updateTime()
-  setInterval(updateTime, 1000)
-  setupScrollAnimations()
-})
-
-onUnmounted(() => {
-  scrollObserver?.disconnect()
-  scrollObserver = null
-})
+const birthDate = new Date('2022-11-15T23:07:00')
+const daysSinceBirth = computed(() => Math.floor((Date.now() - birthDate.getTime()) / 86400000))
+useCountUp(daysEl, daysSinceBirth)
 </script>
 
 <template>
-  <div>
-    <!-- Hero：粉色主视觉 + 卡通元素 -->
-    <section class="hero min-h-screen px-4 pt-10 pb-10">
-      <div class="hero-content flex-col lg:flex-row-reverse gap-10 lg:gap-16" data-scroll-fade>
-        <!-- Illustration：三岁小女孩 + 卡通元素 -->
-        <div class="relative">
-          <div
-            class="w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-gradient-to-br from-pink-200 via-pink-300 to-pink-400 shadow-xl flex items-center justify-center"
-          >
-            <div class="grid grid-cols-2 gap-4">
-              <!-- 奶瓶 -->
-              <div class="flex flex-col items-center gap-1">
-                <BottleIcon class="w-10 h-10 sm:w-12 sm:h-12" />
-                <span class="text-xs sm:text-sm text-pink-50">奶瓶</span>
-              </div>
-              <!-- 书包 -->
-              <div class="flex flex-col items-center gap-1">
-                <BagIcon class="w-10 h-10 sm:w-12 sm:h-12" />
-                <span class="text-xs sm:text-sm text-pink-50">书包</span>
-              </div>
-              <!-- 游泳镜 -->
-              <div class="flex flex-col items-center gap-1">
-                <GogglesIcon class="w-10 h-10 sm:w-12 sm:h-12" />
-                <span class="text-xs sm:text-sm text-pink-50">游泳镜</span>
-              </div>
-              <!-- 自行车 -->
-              <div class="flex flex-col items-center gap-1">
-                <BikeIcon class="w-10 h-10 sm:w-12 sm:h-12" />
-                <span class="text-xs sm:text-sm text-pink-50">自行车</span>
-              </div>
-            </div>
-          </div>
-          <!-- 装饰星星/丝带 -->
-          <div class="pointer-events-none">
-            <span class="floating-star bg-pink-200">⭐</span>
-            <span class="floating-star floating-star-2 bg-pink-300">✨</span>
-            <span class="floating-ribbon bg-pink-100" />
-          </div>
-        </div>
+  <div ref="root" class="h-screen overflow-hidden bg-paper relative flex flex-col items-center justify-center">
+    <PetalFall :count="8" />
 
-        <!-- 文案 + 时间卡片 -->
-        <div class="max-w-xl text-center lg:text-left" data-scroll-fade>
-          <p class="text-sm font-semibold text-pink-500 tracking-wide uppercase mb-2">
-            Little Growing Story
-          </p>
-          <h1
-            class="text-4xl sm:text-5xl font-extrabold mb-4 bg-gradient-to-r from-pink-500 via-pink-400 to-pink-600 bg-clip-text text-transparent"
-          >
-            楚然的成长主页
-          </h1>
-
-          <!-- 时间 & 问候卡片 -->
-          <div class="card bg-pink-50/80 border border-pink-100 shadow-lg mb-6">
-            <div class="card-body gap-2">
-              <h2 class="card-title justify-center lg:justify-start text-pink-600">
-                {{ greeting }}
-              </h2>
-              <p class="text-xs sm:text-sm text-pink-900/70">
-                {{ currentTime }}
-              </p>
-            </div>
-          </div>
-        </div>
+    <!-- Decorations -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div ref="cloud1" class="absolute top-[5%] left-[3%]">
+        <SvgCloud :size="130" color="#e8f4fd" />
       </div>
-    </section>
+      <div ref="cloud2" class="absolute top-[8%] right-[5%]">
+        <SvgCloud :size="100" color="#f3e5f5" />
+      </div>
+      <div ref="star1" class="absolute top-[15%] left-[12%]">
+        <SvgStar :size="22" />
+      </div>
+      <div ref="star2" class="absolute top-[20%] right-[15%]">
+        <SvgStar :size="16" color="#ffe0b2" />
+      </div>
+      <div ref="heart1" class="absolute bottom-[20%] left-[8%]">
+        <SvgHeart :size="18" />
+      </div>
+      <div ref="flower1" class="absolute bottom-[15%] right-[8%]">
+        <SvgFlower :size="24" />
+      </div>
+    </div>
 
-    <!-- 成长小冒险卡片区：对应四种元素 -->
-    <section class="min-h-screen py-16 px-4 flex items-center" data-scroll-fade>
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl sm:text-3xl font-bold text-center text-pink-700 mb-4">
-          奶瓶 · 书包 · 游泳镜 · 自行车
-        </h2>
-        <p class="text-sm sm:text-base text-center text-pink-900/70 mb-10 max-w-2xl mx-auto">
-          每一件小小的物品，都是小女孩成长路上的伙伴：从喝奶到背上书包，从学会游泳到骑上小车车，
-          一点点变得勇敢又独立。
+    <!-- Content -->
+    <div class="relative z-10 flex flex-col items-center text-center px-4">
+      <!-- Photo -->
+      <div ref="photoEl" class="bg-white p-2.5 pb-10 shadow-xl rounded-sm rotate-[-2deg] mb-6">
+        <div class="w-36 h-36 sm:w-44 sm:h-44 overflow-hidden">
+          <img src="/images/0001.jpg" alt="果果" class="w-full h-full object-cover" @error="($event.target as HTMLImageElement).style.background = '#fce4ec'">
+        </div>
+        <p class="font-handwrite text-sm text-gray-500 mt-1.5 text-center">
+          小果果 ♡
         </p>
+      </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- 奶瓶 -->
-          <div
-            class="card bg-pink-50 shadow-md hover:shadow-xl transition-shadow border border-pink-100"
-            data-scroll-fade
-          >
-            <div class="card-body items-center text-center gap-3">
-              <div class="w-14 h-14">
-                <BottleIcon class="w-full h-full" />
-              </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">
-                暖暖奶瓶
-              </h3>
-              <p class="text-xs sm:text-sm text-pink-900/80">
-                记录从小奶宝宝到大女孩的每一次“喝光光”，陪伴最安心的入睡时刻。
-              </p>
-            </div>
-          </div>
+      <!-- Title -->
+      <div ref="titleEl" class="mb-8">
+        <h1 class="font-handwrite text-3xl sm:text-4xl text-gray-800 mb-2">
+          果果的成长主页
+        </h1>
+        <p class="text-xs text-gray-400">
+          已陪伴 <span ref="daysEl" class="font-bold text-pink-500">0</span> 天
+        </p>
+      </div>
 
-          <!-- 书包 -->
-          <div
-            class="card bg-pink-50 shadow-md hover:shadow-xl transition-shadow border border-pink-100"
-            data-scroll-fade
-          >
-            <div class="card-body items-center text-center gap-3">
-              <div class="w-14 h-14">
-                <BagIcon class="w-full h-full" />
-              </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">
-                小小书包
-              </h3>
-              <p class="text-xs sm:text-sm text-pink-900/80">
-                把画画本和小贴纸都装进去，背上书包，就是准备好去探索世界的小小冒险家。
-              </p>
-            </div>
-          </div>
-
-          <!-- 游泳镜 -->
-          <div
-            class="card bg-pink-50 shadow-md hover:shadow-xl transition-shadow border border-pink-100"
-            data-scroll-fade
-          >
-            <div class="card-body items-center text-center gap-3">
-              <div class="w-14 h-14">
-                <GogglesIcon class="w-full h-full" />
-              </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">
-                粉色游泳镜
-              </h3>
-              <p class="text-xs sm:text-sm text-pink-900/80">
-                在水里睁大眼睛看这个世界，每一次扑腾都是新的勇气值 +1。
-              </p>
-            </div>
-          </div>
-
-          <!-- 自行车 -->
-          <div
-            class="card bg-pink-50 shadow-md hover:shadow-xl transition-shadow border border-pink-100"
-            data-scroll-fade
-          >
-            <div class="card-body items-center text-center gap-3">
-              <div class="w-14 h-14">
-                <BikeIcon class="w-full h-full" />
-              </div>
-              <h3 class="card-title justify-center text-pink-700 text-lg">
-                小小自行车
-              </h3>
-              <p class="text-xs sm:text-sm text-pink-900/80">
-                从滑步车到真正的小自行车，在每一圈绕圈圈里，慢慢学会保持平衡。
-              </p>
-            </div>
-          </div>
+      <!-- Gift boxes - scattered -->
+      <div ref="giftsEl" class="flex gap-16 items-start">
+        <div class="rotate-[-8deg] translate-y-3">
+          <GiftBoxNav to="/timeline" label="成长记录" color="#f48fb1" />
+        </div>
+        <div class="rotate-[5deg] -translate-y-2">
+          <GiftBoxNav to="/birthday" label="生日集" color="#ce93d8" />
         </div>
       </div>
-    </section>
+    </div>
   </div>
 </template>
-
-<style scoped>
-@reference "tailwindcss";
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.avatar img {
-  animation: float 3s ease-in-out infinite;
-}
-
-.floating-star {
-  @apply absolute w-10 h-10 rounded-full flex items-center justify-center text-lg text-pink-500/90;
-  animation: float 4s ease-in-out infinite;
-  top: -1.5rem;
-  right: -1.5rem;
-}
-
-.floating-star-2 {
-  top: auto;
-  bottom: -1.25rem;
-  right: 1rem;
-  animation-delay: 0.8s;
-}
-
-.floating-ribbon {
-  @apply absolute w-16 h-16 rounded-full opacity-70;
-  left: -1.5rem;
-  top: 1.5rem;
-  filter: blur(2px);
-  animation: float 5s ease-in-out infinite;
-}
-</style>

@@ -22,8 +22,8 @@
           </RouterLink>
         </li>
         <li>
-          <RouterLink to="/countdown" class="hover:text-pink-500">
-            生日惊喜
+          <RouterLink to="/birthday" class="hover:text-pink-500">
+            生日集
           </RouterLink>
         </li>
       </ul>
