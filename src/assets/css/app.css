@@ -5,6 +5,15 @@
     dark;
 }
 
+@theme {
+  --color-story-ink: #40598a;
+  --color-story-ink-soft: #6278a6;
+  --color-story-paper: #fffdf6;
+  --color-story-line: #dbe9fb;
+  --color-story-pink: #ef8baa;
+  --color-story-yellow: #ffcf5f;
+}
+
 /* 手写风标题字体 */
 .font-handwrite {
   font-family: '白路棒棒手写体', 'Comic Sans MS', cursive, sans-serif;
