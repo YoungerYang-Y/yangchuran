@@ -5,7 +5,7 @@
 - 结果：adopt
 - 执行分支：`feature/deps_1.1.0`
 - 基线提交：`337580b`
-- 阶段提交：本阶段的独立提交（提交后由 Git 历史确定 SHA）
+- 阶段提交：`bf7ed72`（`build(deps): 升级 Vite 8 并迁移构建配置`）
 
 ## 候选与迁移
 
@@ -27,5 +27,5 @@
 ## 审计与结论
 
 - `pnpm audit --registry=https://registry.npmjs.org --json`：critical 0 / high 4 / moderate 1 / low 1；相对 [Phase 2 审计](./phase-2-audit.json) 未新增 critical/high advisory，high 从 10 降至 4。详情见 [phase-3a-audit.json](./phase-3a-audit.json)。
-- 剩余 high 均在工具链传递路径：`unplugin-auto-import > unplugin > rollup`、`unplugin-vue-components > unplugin-utils > picomatch`、`vite > less > image-size`；没有归因为访客站点运行时漏洞。
+- 剩余 high 均在工具链传递路径：`unplugin-auto-import > unplugin > rollup`、`unplugin-vue-components > unplugin-utils > picomatch`、`vite > less > image-size`；它们只在本地开发或构建流程解析，不归因为访客站点运行时漏洞。前两项等待 unplugin 生态上游更新；`image-size` 当前审计未给出修复版本，后续继续跟踪 Vite/less 的传递依赖更新。
 - Vite 8、配置迁移、浏览器目标、开发服务器、构建、测试、类型、Lint、锁文件与审计门槛均已通过，采用该版本。

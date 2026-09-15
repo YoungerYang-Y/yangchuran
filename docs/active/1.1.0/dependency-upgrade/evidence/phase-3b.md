@@ -5,7 +5,7 @@
 - 结果：retain-and-record
 - 执行分支：`feature/deps_1.1.0`
 - 基线提交：`bf7ed72`
-- 阶段提交：本阶段的独立提交仅包含已验证的 `tsconfig` 迁移与评估证据；`typescript` 保持 `~5.9.3`，未提交 6.x 候选。
+- 阶段提交：`fb04110`（`build(types): 清理 TypeScript 6 弃用配置`）；仅包含已验证的 `tsconfig` 迁移与评估证据，`typescript` 保持 `~5.9.3`，未提交 6.x 候选。
 
 ## 候选与 CLI 试验
 
