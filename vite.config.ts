@@ -31,7 +31,10 @@ export default defineConfig({
     },
   },
   build: {
-    rollupOptions: {
+    // Keep Vite 7's default browser baseline when moving to Vite 8.
+    // Source: https://vite.dev/guide/migration
+    target: ['chrome107', 'edge107', 'firefox104', 'safari16'],
+    rolldownOptions: {
       output: {
         chunkFileNames: 'static/js/[name]-[hash].js',
         entryFileNames: 'static/js/[name]-[hash].js',
