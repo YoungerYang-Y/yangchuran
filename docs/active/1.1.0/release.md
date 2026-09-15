@@ -20,12 +20,13 @@ released: null
 
 ## 独立提交
 
-| 日期       | 类型  | 描述                            | Commit    | 状态              | 验证证据                                              |
-| ---------- | ----- | ------------------------------- | --------- | ----------------- | ----------------------------------------------------- |
-| 2026-09-15 | build | 第一阶段低风险依赖升级          | `b53d5e6` | adopt             | [Phase 1](./dependency-upgrade/evidence/phase-1.md)   |
-| 2026-09-15 | build | DaisyUI 视觉回归                | `337580b` | adopt             | [Phase 2](./dependency-upgrade/evidence/phase-2.md)   |
-| 2026-09-15 | build | Vite 8 与构建配置迁移           | `bf7ed72` | adopt             | [Phase 3A](./dependency-upgrade/evidence/phase-3a.md) |
-| 2026-09-15 | build | TypeScript 6 评估与弃用配置清理 | `fb04110` | retain-and-record | [Phase 3B](./dependency-upgrade/evidence/phase-3b.md) |
+| 日期       | 类型  | 描述                            | Commit    | 状态              | 验证证据                                                      |
+| ---------- | ----- | ------------------------------- | --------- | ----------------- | ------------------------------------------------------------- |
+| 2026-09-15 | build | 第一阶段低风险依赖升级          | `b53d5e6` | adopt             | [Phase 1](./dependency-upgrade/evidence/phase-1.md)           |
+| 2026-09-15 | build | DaisyUI 视觉回归                | `337580b` | adopt             | [Phase 2](./dependency-upgrade/evidence/phase-2.md)           |
+| 2026-09-15 | build | Vite 8 与构建配置迁移           | `bf7ed72` | adopt             | [Phase 3A](./dependency-upgrade/evidence/phase-3a.md)         |
+| 2026-09-15 | build | TypeScript 6 评估与弃用配置清理 | `fb04110` | retain-and-record | [Phase 3B](./dependency-upgrade/evidence/phase-3b.md)         |
+| 2026-09-15 | build | Vitest 补丁版本升级             | `f78fa4a` | adopt             | [Vitest 5.0.1](./dependency-upgrade/evidence/vitest-5.0.1.md) |
 
 ## 风险接受
 

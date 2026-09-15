@@ -1,21 +1,13 @@
-# Security Policy
+# 安全策略
 
-## Supported Versions
+Yang ChuRan 是一个静态成长记录网站。我们仍会认真处理会影响访客、内容或部署环境的安全问题。
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## 报告方式
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+如仓库已启用 GitHub Private Vulnerability Reporting，请使用该功能提交报告。若功能不可用，请先通过维护者可见的非公开渠道联系，不要在公开 issue 中披露漏洞细节、访问凭据或可利用步骤。
 
-## Reporting a Vulnerability
+报告请尽量说明受影响的位置、复现条件、潜在影响，以及任何临时缓解建议。维护者会确认收到报告，并在核实后决定修复与披露安排。
 
-Use this section to tell people how to report a vulnerability.
+## 支持范围
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+仅当前默认分支和正在维护的发布版本属于支持范围。历史归档版本不单独提供安全更新。

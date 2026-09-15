@@ -2,9 +2,9 @@
 
 项目级通用设计决策。每个文档定义一个跨功能的设计主题，智能体在相关领域编码前应先查阅。
 
-| id  | 主题     | status   | 适用范围 | 路径              |
-| --- | -------- | -------- | -------- | ----------------- |
-| 1   | 核心信条 | verified | 全局     | `core-beliefs.md` |
+| id  | 主题     | status   | 适用范围 | 路径                                 |
+| --- | -------- | -------- | -------- | ------------------------------------ |
+| 1   | 核心信条 | verified | 全局     | [core-beliefs.md](./core-beliefs.md) |
 
 ## status 含义
 
@@ -14,7 +14,7 @@
 
 ## 何时创建 design-doc
 
-- 需要修改 `ARCHITECTURE.md` 或 `core-beliefs.md` 中的长期约束时，先创建 `arch-` 前缀的 design-doc 作为架构 RFC
+- 需要改变 `ARCHITECTURE.md` 或 [core-beliefs.md](./core-beliefs.md) 中的长期约束时，先创建 `arch-` 前缀的 design-doc 作为架构 RFC；仅修正文档与实现之间的事实漂移不需要 RFC
 - 发现跨多个需求的通用设计问题时（如缓存策略、组件规范）
 - 实施过程中需要违反现有架构约束时，暂停实施，先创建架构 RFC
 

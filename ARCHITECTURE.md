@@ -1,80 +1,46 @@
-# ARCHITECTURE.md
+# 架构地图
 
-## 系统概述
+## 系统边界
 
-Yang ChuRan 是一个纯前端单页应用（SPA），用于记录小女孩的成长历程。无后端服务、无数据库，所有内容为静态数据，构建产物部署在 Vercel CDN 上。
-
-目标用户：家人和朋友。核心功能：成长时间线、生日祝福页、照片手风琴展示、倒计时。
-
-技术选型以"简单、现代、零运维"为原则：Vue 3 Composition API + TypeScript + Tailwind CSS 4 + DaisyUI 5。
-
-## 项目结构
-
-```
-project-root/
-├── src/
-│   ├── pages/              # 文件路由页面（自动生成路由）
-│   │   ├── index.vue       # 首页
-│   │   ├── timeline.vue    # 成长时间线
-│   │   ├── accordion.vue   # 照片手风琴
-│   │   ├── countdown.vue   # 倒计时
-│   │   ├── birthday/       # 生日相关页面
-│   │   └── error/          # 错误页面
-│   ├── components/         # 通用组件
-│   │   └── icons/          # SVG 图标组件
-│   ├── layouts/            # 布局组件（default.vue）
-│   ├── assets/             # 静态资源（CSS、图片）
-│   ├── util/               # 工具函数
-│   ├── types/              # TypeScript 类型声明（自动生成）
-│   ├── App.vue             # 根组件
-│   └── main.ts             # 应用入口
-├── public/                 # 公共静态资源
-├── docs/                   # 项目文档
-├── AGENTS.md               # 智能体入口
-└── ARCHITECTURE.md         # 本文件
-```
-
-## 分层模型
+Yang ChuRan 是一个部署在 Vercel 上的静态前端站点，用来记录楚然的成长。它没有后端服务、数据库或用户账户；页面内容来自仓库中的静态数据和图片资源，由浏览器直接呈现。
 
 ```mermaid
-flowchart TD
-  Pages["Pages（页面）"] --> Components["Components（组件）"]
-  Pages --> Layouts["Layouts（布局）"]
-  Pages --> Utils["Utils（工具）"]
-  Components --> Assets["Assets（静态资源）"]
+flowchart LR
+  Visitor[家人和朋友] --> App[Vue 单页应用]
+  App --> Pages[文件路由页面]
+  Pages --> Content[静态内容与图片]
+  App --> CDN[Vercel 静态部署]
 ```
 
-**依赖规则：**
+## 代码布局
 
-- Pages 可以依赖 Components、Layouts、Utils、Assets
-- Components 可以依赖 Assets
-- 不存在跨页面依赖（每个页面是独立入口）
-- 无后端依赖，无 API 层
+```text
+src/
+├── pages/          # 首页、时间线、照片页、生日页与 404 页面
+├── components/     # 首页、生日、装饰和图标组件
+├── composables/    # 动画与交互逻辑
+├── data/           # 时间线、生日和首页内容
+├── utils/          # 与页面无关的纯逻辑
+├── assets/         # 全局样式和随构建发布的资源
+├── types/          # 环境与自动生成的类型声明
+├── App.vue         # 应用壳，承载 RouterView
+└── main.ts         # 创建 Vue 应用与文件路由
+```
 
-## 技术栈
+## 依赖方向
 
-| 层级     | 技术                       | 版本/备注                                |
-| -------- | -------------------------- | ---------------------------------------- |
-| 框架     | Vue 3                      | ^3.5，Composition API + `<script setup>` |
-| 路由     | Vue Router 5               | 文件路由（vue-router/vite 内置）         |
-| 样式     | Tailwind CSS 4 + DaisyUI 5 | CSS-first 配置，@tailwindcss/postcss     |
-| 预处理器 | Less                       | 仅 2 个页面使用                          |
-| 工具库   | VueUse                     | 按需使用                                 |
-| 构建     | Vite 7                     | esbuild 压缩                             |
-| 类型     | TypeScript ~5.9            | 严格模式                                 |
-| 部署     | Vercel                     | 静态 SPA，vercel.json 配置 SPA fallback  |
+- 页面负责组合组件、内容、交互逻辑和资源。
+- 组件可以复用 composable、静态内容和资源，但不依赖某个具体页面。
+- `data/` 与 `utils/` 不依赖页面或组件，保持可单独测试。
+- 路由由 `src/pages/` 的文件生成；自动生成的类型声明不手工编辑。
+- 站点内容保持静态，新增内容优先补充数据、页面和图片，而不是增加服务端状态。
 
-## 模块职责
+## 技术边界
 
-| 模块              | 职责                           | 依赖                       |
-| ----------------- | ------------------------------ | -------------------------- |
-| `src/pages/`      | 页面级组件，自动注册为路由     | components, layouts, utils |
-| `src/components/` | 可复用 UI 组件                 | assets                     |
-| `src/layouts/`    | 页面布局骨架                   | components                 |
-| `src/assets/`     | 样式表和图片资源               | 无                         |
-| `src/util/`       | 纯函数工具                     | 无                         |
-| `src/types/`      | 自动生成的类型声明（禁止手改） | 无                         |
+当前实现使用 Vue 3、Vue Router 5、Vite 8、Tailwind CSS 4、DaisyUI 5 和 GSAP。构建配置固定既有浏览器兼容基线，部署保持为 Vercel 的静态 SPA。具体依赖与验证记录归入 [docs](./docs/README.md)，不在本文件重复维护版本清单。
 
-## 关键架构决策
+## 相关文档
 
-详见 [`docs/design-docs/`](./docs/design-docs/)。
+- [业务领域](./docs/DOMAINS.md)
+- [工程信条](./docs/design-docs/core-beliefs.md)
+- [活跃工作](./docs/active/index.md)

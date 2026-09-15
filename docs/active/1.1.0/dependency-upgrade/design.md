@@ -1,8 +1,16 @@
+---
+id: dependency-upgrade
+status: verified
+owner: ORPHAN
+created: 2026-09-15
+verified: 2026-09-15
+---
+
 # 分阶段依赖升级
 
 ## Context
 
-项目当前使用 Vue 3、Vue Router 5、Tailwind CSS 4、DaisyUI 5 与 Vite 7。官方 npm 审计在完整安装树中报告了传递依赖告警，候选版本同时包含低风险补丁、小版本更新，以及 Vite 8、TypeScript 6/7 这类需要单独验证的主版本变化。
+版本启动时，项目使用 Vue 3、Vue Router 5、Tailwind CSS 4、DaisyUI 5 与 Vite 7。官方 npm 审计在完整安装树中报告了传递依赖告警，候选版本同时包含低风险补丁、小版本更新，以及 Vite 8、TypeScript 6/7 这类需要单独验证的主版本变化。Vite 8 已在 Phase 3A 采用；本文中的 Vite 7 表述均指该阶段的历史基线。
 
 ## Goal
 
@@ -66,10 +74,11 @@ flowchart TD
 | Phase 3A | `vite`                            | `^7.3.1`                                   | 评估 `^8.3.0`                                    | 仅在 Vite 8 全量校验、开发服务器就绪和构建门槛通过时采用；配置迁移必须逐项记录。               |
 | Phase 3B | `typescript`                      | `~5.9.3`                                   | 评估 TypeScript 6.x                              | 执行前从官方 registry 冻结实际 `6.x` 目标范围并写入证据；CLI 与编辑器工作流均通过后才能采用。  |
 | Phase 3B | `typescript`                      | `~5.9.3`                                   | TypeScript 7：本版本保留                         | TypeScript 7 只做兼容性资料评估，不安装、不修改 `package.json`，除非另行批准独立版本目标。     |
+| 补充更新 | `vitest`                          | `^5.0.0`                                   | `^5.0.1`                                         | 后续发现的补丁候选；冻结锁文件、全量校验与审计对比均通过后，才以独立提交采用。                 |
 | 所有阶段 | `pnpm-lock.yaml`                  | 当前锁文件                                 | pnpm 根据本阶段目标重新解析                      | 只允许 pnpm 生成；若锁文件冲突或出现未预期的大范围变更，按错误处理矩阵保留并记录。             |
 | Phase 1  | `package.json`、自动发布工作流    | Node `>=22.14.0`、CI Node 20 / pnpm 8.15.3 | Node `>=22.22.1`、CI Node 22.22.3 / pnpm 10.30.0 | 与 lint-staged 的运行时要求对齐；CI 安装必须使用 `pnpm install --frozen-lockfile`。            |
 
-以下直接依赖不在本版本的候选更新范围，执行时必须保持其当前版本，不能将其遗漏误判为待升级项：`gsap` `^3.15.0`、`@vue/tsconfig` `^0.9.1`、`husky` `^9.1.7`、`unplugin-vue-components` `^32.1.0` 与 `vitest` `^5.0.0`。它们均没有本次审计确认的更新候选；其中 `unplugin-vue-components` 继续作为现有 Vite 组件自动注册链路的一部分。
+初始盘点中，以下直接依赖不在候选更新范围，执行时不得将其遗漏误判为待升级项：`gsap` `^3.15.0`、`@vue/tsconfig` `^0.9.1`、`husky` `^9.1.7` 与 `unplugin-vue-components` `^32.1.0`。其中 `unplugin-vue-components` 继续作为现有 Vite 组件自动注册链路的一部分。Vitest 在后续盘点中发现 `5.0.1` 补丁候选，已由独立提交 `f78fa4a` 采用，证据见 `evidence/vitest-5.0.1.md`。
 
 ## Data Model
 
@@ -82,6 +91,7 @@ docs/active/1.1.0/dependency-upgrade/evidence/phase-1.md
 docs/active/1.1.0/dependency-upgrade/evidence/phase-2.md
 docs/active/1.1.0/dependency-upgrade/evidence/phase-3a.md
 docs/active/1.1.0/dependency-upgrade/evidence/phase-3b.md
+docs/active/1.1.0/dependency-upgrade/evidence/vitest-5.0.1.md
 docs/active/1.1.0/dependency-upgrade/evidence/baseline-audit.json
 ```
 
@@ -167,3 +177,4 @@ registry 查询和审计端点均以 30 秒为单次等待上限，30 秒后最�
 | Phase 3  | 主版本兼容性评估总阶段                                      | Phase 2 完成后开启两条独立轨道；每条轨道都单独校验、审计和记录                                           | 3A、3B 各自结论，不互相覆盖。               |
 | Phase 3A | Vite `^7.3.1` → 评估 `^8.3.0`                               | 配置迁移 → 开发服务器就绪 → 四项全量校验 → 审计 → `phase-3a.md`                                          | 通过则采用提交；失败则保留 Vite 7 并记录。  |
 | Phase 3B | TypeScript `~5.9.3` → 评估冻结后的 6.x；TypeScript 7 仅研究 | CLI 类型检查 → 构建 → 编辑器工作流 → 审计 → `phase-3b.md`                                                | 全部通过才采用 6.x；否则保留 5.9.3 并记录。 |
+| 补充更新 | Vitest `^5.0.0` → `^5.0.1`                                  | 冻结锁文件 → 四项全量校验 → 审计对比 → `vitest-5.0.1.md`                                                 | 通过则以独立提交采用；否则保留原版本。      |

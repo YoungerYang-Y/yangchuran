@@ -1,4 +1,13 @@
+---
+id: homepage-refactor
+status: draft
+owner: ORPHAN
+created: 2026-06-07
+---
+
 # Homepage Refactor Design
+
+> 说明：这是重构启动时的设计草案。实施已产生变化；进入发布或归档前，必须依据当前代码重新核验本文的组件、动效和内容描述。
 
 ## Background & Motivation
 

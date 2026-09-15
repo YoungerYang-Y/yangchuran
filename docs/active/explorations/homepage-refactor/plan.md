@@ -1,4 +1,14 @@
+---
+id: homepage-refactor
+status: in-progress
+owner: ORPHAN
+created: 2026-06-07
+updated: 2026-09-15
+---
+
 # Homepage Refactor Implementation Plan
+
+> 说明：这是重构启动时的实施计划。勾选状态未重新核验；继续推进前应先以当前代码与验证结果回写。
 
 **Goal:** 重构首页 + 时间轴 + 生日页，引入 GSAP 趣味童真动效体系
 **Architecture:** GSAP composable 层封装动画逻辑 → 数据配置驱动内容 → 页面组件组合渲染 → gsap.context() 管理生命周期

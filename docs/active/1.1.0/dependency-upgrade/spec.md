@@ -1,3 +1,11 @@
+---
+id: dependency-upgrade
+status: shipped
+owner: ORPHAN
+created: 2026-09-15
+updated: 2026-09-15
+---
+
 # 分阶段依赖升级
 
 ## Overview
@@ -55,11 +63,18 @@ And 依赖版本恢复到上一已验证阶段
 
 ### Scenario: Vite 主版本评估
 
-Given 当前 Vite 7 的构建配置、路由和自动导入链路可用
+Given 评估开始时的 Vite 7 构建配置、路由和自动导入链路可用
 When 评估 Vite 8
 Then 构建配置、开发服务器、生产构建和全量校验在独立阶段验证
 And 通过时以独立提交采用 Vite 8；不通过时保留 Vite 7 并记录拒绝结论
 And 评估结果不影响已完成的低风险阶段
+
+### Scenario: Vitest 补丁更新
+
+Given 已完成的阶段保持可复核，且发现 Vitest 5.0.1 补丁候选
+When 冻结锁文件并完成测试、类型检查、Lint、生产构建与审计对比
+Then 仅在所有门槛通过后以独立提交采用该补丁版本
+And 版本、验证结果与剩余审计风险被记录为证据
 
 ### Scenario: TypeScript 主版本评估
 

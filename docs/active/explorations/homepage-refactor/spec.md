@@ -1,3 +1,11 @@
+---
+id: homepage-refactor
+status: in-progress
+owner: ORPHAN
+created: 2026-06-07
+updated: 2026-09-15
+---
+
 # Homepage Refactor Spec
 
 ## Overview
