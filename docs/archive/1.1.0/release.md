@@ -1,22 +1,22 @@
 ---
 version: "1.1.0"
-status: "in-progress"
+status: "archived"
 branch: feature/deps_1.1.0
 created: 2026-09-15
-released: null
+released: 2026-09-15
 ---
 
-# 1.1.0 Release
+# 1.1.0 版本归档
 
 ## 版本摘要
 
-以可回归验证的阶段升级方式更新前端依赖，优先处理低风险与构建链安全问题，同时隔离 DaisyUI、Vite 和 TypeScript 的兼容性风险。
+以可回归验证的阶段升级方式更新前端依赖，优先处理低风险与构建链安全问题，同时隔离 DaisyUI、Vite 和 TypeScript 的兼容性风险。需求交付已完成；未关闭的验证与上游风险继续由活跃技术债跟踪。
 
 ## 需求交付
 
-| 需求               | 路径                                  | 状态      | 简述                                 |
-| ------------------ | ------------------------------------- | --------- | ------------------------------------ |
-| dependency-upgrade | docs/active/1.1.0/dependency-upgrade/ | completed | 分阶段升级依赖并记录安全与兼容性结论 |
+| 需求               | 路径                                   | 状态      | 简述                                 |
+| ------------------ | -------------------------------------- | --------- | ------------------------------------ |
+| dependency-upgrade | docs/archive/1.1.0/dependency-upgrade/ | completed | 分阶段升级依赖并记录安全与兼容性结论 |
 
 ## 独立提交
 
