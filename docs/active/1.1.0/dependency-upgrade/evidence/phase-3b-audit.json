@@ -1,0 +1,33 @@
+{
+  "capturedAt": "2026-09-15",
+  "candidate": "typescript@6.0.3",
+  "command": "pnpm audit --registry=https://registry.npmjs.org --json",
+  "source": "https://registry.npmjs.org",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 1,
+      "moderate": 1,
+      "high": 4,
+      "critical": 0
+    },
+    "dependencies": 629,
+    "devDependencies": 0,
+    "optionalDependencies": 0,
+    "totalDependencies": 629
+  },
+  "highSeveritySourceChains": [
+    ".>unplugin-auto-import>unplugin>rollup",
+    ".>unplugin-vue-components>unplugin-utils>picomatch",
+    ".>vite>less>image-size"
+  ],
+  "comparison": {
+    "baseline": "./baseline-audit.json",
+    "previousPhase": "./phase-3a-audit.json",
+    "critical": "0 -> 0",
+    "high": "4 -> 4",
+    "moderate": "1 -> 1",
+    "low": "1 -> 1",
+    "newCriticalOrHighAdvisory": false
+  }
+}
