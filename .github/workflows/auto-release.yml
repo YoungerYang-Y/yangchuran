@@ -23,22 +23,22 @@ jobs:
     #关键配置
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v6
         name: Install pnpm
-        id: pnpm-install
         with:
-          version: 8.15.3
+          version: 10.30.0
           run_install: false
 
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.3
+          cache: pnpm
+
       - name: install deps
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: build app
         run: pnpm run build

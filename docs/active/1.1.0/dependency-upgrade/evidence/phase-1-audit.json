@@ -1,0 +1,34 @@
+{
+  "capturedAt": "2026-09-15",
+  "command": "pnpm audit --registry=https://registry.npmjs.org --json",
+  "source": "https://registry.npmjs.org",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 1,
+      "moderate": 4,
+      "high": 10,
+      "critical": 0
+    },
+    "dependencies": 604,
+    "devDependencies": 0,
+    "optionalDependencies": 0,
+    "totalDependencies": 604
+  },
+  "highSeveritySourceChains": [
+    ".>vite",
+    ".>unplugin-auto-import>unplugin>rollup",
+    ".>unplugin-vue-components>unplugin-utils>picomatch",
+    ".>vite>less>image-size",
+    ".>vite>postcss",
+    ".>vite>postcss>nanoid"
+  ],
+  "comparison": {
+    "baseline": "./baseline-audit.json",
+    "critical": "0 -> 0",
+    "high": "32 -> 10",
+    "moderate": "12 -> 4",
+    "low": "2 -> 1",
+    "newCriticalOrHighAdvisory": false
+  }
+}

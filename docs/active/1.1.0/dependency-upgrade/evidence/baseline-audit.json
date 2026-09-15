@@ -1,0 +1,31 @@
+{
+  "capturedAt": "2026-09-15",
+  "command": "pnpm audit --registry=https://registry.npmjs.org --json",
+  "source": "https://registry.npmjs.org",
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 2,
+      "moderate": 12,
+      "high": 32,
+      "critical": 0
+    },
+    "dependencies": 629,
+    "devDependencies": 0,
+    "optionalDependencies": 0,
+    "totalDependencies": 629
+  },
+  "highSeveritySourceChains": [
+    ".>vite",
+    ".>vite>rollup",
+    ".>vite>less>image-size",
+    ".>@commitlint/cli>@commitlint/load>cosmiconfig>js-yaml",
+    ".>@commitlint/cli>@commitlint/load>@commitlint/config-validator>ajv>fast-uri",
+    ".>@antfu/eslint-config>@typescript-eslint/eslint-plugin>@typescript-eslint/type-utils>@typescript-eslint/typescript-estree>minimatch",
+    ".>@antfu/eslint-config>@stylistic/eslint-plugin>picomatch",
+    ".>@antfu/eslint-config>eslint-processor-vue-blocks>@vue/compiler-sfc>postcss",
+    ".>@antfu/eslint-config>eslint-plugin-unicorn>core-js-compat>browserslist",
+    ".>eslint>file-entry-cache>flat-cache>flatted"
+  ],
+  "note": "此结构化快照从 npm 官方 JSON 审计结果提取严重度统计和来源链；完整命令输出由执行日志保留。"
+}
