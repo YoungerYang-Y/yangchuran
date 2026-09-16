@@ -46,7 +46,7 @@ const {
         </div>
       </div>
 
-      <div class="story-intro relative z-10 mx-auto mb-10 w-[min(100%_-_2rem,42rem)] text-center">
+      <div id="story-intro" class="story-intro relative z-10 mx-auto mb-10 w-[min(100%_-_2rem,42rem)] text-center">
         <p class="eyebrow text-sm font-bold tracking-[0.12em] text-story-pink">
           一年一张照片，一段记忆
         </p>

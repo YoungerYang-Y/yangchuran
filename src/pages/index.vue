@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import PetalFall from '../components/atmosphere/PetalFall.vue'
 import SvgCloud from '../components/decorations/SvgCloud.vue'
 import SvgFlower from '../components/decorations/SvgFlower.vue'
@@ -7,6 +7,7 @@ import SvgHeart from '../components/decorations/SvgHeart.vue'
 import SvgStar from '../components/decorations/SvgStar.vue'
 import FamiliarDoorSection from '../components/home/FamiliarDoorSection.vue'
 import GrowthStorybook from '../components/home/GrowthStorybook.vue'
+import HomeBgm from '../components/home/HomeBgm.vue'
 import HomeHero from '../components/home/HomeHero.vue'
 import { useFloating } from '../composables/useFloating'
 import { useGsapContext } from '../composables/useGsapContext'
@@ -15,11 +16,18 @@ const root = ref<HTMLElement>()
 const cloud = ref<HTMLElement>()
 const star = ref<HTMLElement>()
 const flower = ref<HTMLElement>()
+const bgm = useTemplateRef<InstanceType<typeof HomeBgm>>('home-bgm')
 
 useGsapContext(root)
 useFloating(cloud, { y: -8, duration: 5 })
 useFloating(star, { y: 6, duration: 3 })
 useFloating(flower, { y: -5, duration: 4 })
+
+function startStoryBgm() {
+  // Keep play() inside the click handler so browsers retain user activation.
+  // Source: https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay
+  void bgm.value?.startForStoryNavigation()
+}
 </script>
 
 <template>
@@ -40,9 +48,10 @@ useFloating(flower, { y: -5, duration: 4 })
       </div>
     </div>
 
-    <HomeHero />
+    <HomeHero @start-story="startStoryBgm" />
     <GrowthStorybook />
     <FamiliarDoorSection />
+    <HomeBgm ref="home-bgm" />
   </div>
 </template>
 

@@ -3,6 +3,10 @@ import { ref } from 'vue'
 import { useGsapEntrance } from '../../composables/useGsapEntrance'
 import { homeMoments } from '../../data/homeMoments'
 
+const emit = defineEmits<{
+  startStory: []
+}>()
+
 const hero = ref<HTMLElement>()
 const firstStoryYear = homeMoments[0]?.year ?? 2022
 const latestStoryYear = homeMoments.at(-1)?.year ?? firstStoryYear
@@ -25,7 +29,7 @@ useGsapEntrance(hero, { from: { autoAlpha: 0, y: 28, rotation: -2 }, duration: 0
       <span>从挥挥小手，</span><span>到带着好多为什么认识世界。</span><br>
       <span>把果果每一年的发现，</span><span>慢慢翻给你看。</span>
     </p>
-    <a class="scroll-hint mx-auto mt-8 w-fit" href="#moments">往下翻 {{ homeMoments.length }} 张年度故事 <span aria-hidden="true">↓</span></a>
+    <a class="scroll-hint mx-auto mt-8 w-fit" href="#moments" @click="emit('startStory')">伴着音乐，往下翻 {{ homeMoments.length }} 张年度故事 <span aria-hidden="true">↓</span></a>
   </section>
 </template>
 
